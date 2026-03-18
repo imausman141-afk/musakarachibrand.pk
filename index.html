@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSA KARACHI BRAND | Luxury Pret Wear</title>
+
+<meta name="title" content="MUSA KARACHI BRAND | Luxury Pret Wear">
+<meta name="description" content="Discover MUSA KARACHI BRAND – premium luxury pret wear for modern fashion lovers. Elegant designs, high-quality fabrics, and timeless style crafted in Karachi.">
+<meta name="keywords" content="MUSA Karachi, luxury pret wear, Pakistani fashion, designer clothes, women clothing, pret collection, Karachi brand, stylish outfits">
+<meta name="author" content="MUSA KARACHI BRAND">
+
+
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts: elegant serif + clean sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s;
+    }
+
+    /* LIGHT MODE (default) */
+    :root {
+      --bg: #ffffff;
+      --bgSoft: #f9f9f9;
+      --text: #1e1e1e;
+      --textLight: #555;
+      --border: #eaeaea;
+      --cardBg: #ffffff;
+      --cardShadow: 0 8px 24px rgba(0,0,0,0.04);
+      --accent: #c9a05e; /* gold */
+      --accentHover: #b48a45;
+      --headerBg: rgba(255, 255, 255, 0.85);
+      --footerBg: #0a0a0a;
+      --footerText: #dddddd;
+      --ratingStar: #f5b342;
+    }
+
+    /* DARK MODE */
+    body.dark {
+      --bg: #121212;
+      --bgSoft: #1e1e1e;
+      --text: #ededed;
+      --textLight: #aaaaaa;
+      --border: #333;
+      --cardBg: #1a1a1a;
+      --cardShadow: 0 10px 28px rgba(0,0,0,0.5);
+      --accent: #dbb16a;
+      --accentHover: #e4c282;
+      --headerBg: rgba(18, 18, 18, 0.9);
+      --footerBg: #0a0a0a;
+      --footerText: #bbbbbb;
+      --ratingStar: #f5b342;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3, h4, .logo, .serif {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    /* sticky navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: var(--headerBg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
+    .logo span {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      transition: 0.2s;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 4px;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* day/night toggle */
+    .toggle-switch {
+      background: var(--border);
+      width: 52px;
+      height: 28px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      padding: 3px;
+      cursor: pointer;
+      position: relative;
+      margin-left: 10px;
+    }
+    .toggle-knob {
+      height: 22px;
+      width: 22px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: black;
+      transition: transform 0.3s;
+    }
+    body.dark .toggle-knob {
+      transform: translateX(24px);
+      background: #f1c40f;
+      color: #000;
+    }
+    .toggle-switch .fa-sun { opacity: 0; }
+    body.dark .toggle-switch .fa-moon { opacity: 0; }
+
+    /* hero - no button now */
+    .hero {
+      background: linear-gradient(100deg, #0e0e0e 0%, #2b2b2b 100%);
+      color: white;
+      padding: 90px 40px;
+      border-radius: 0 0 40px 40px;
+      margin-bottom: 40px;
+      background-image: url('download (1).png'); /* luxury fashion visual */
+      background-size: cover;
+      background-position: center 30%;
+      background-blend-mode: overlay;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      border-radius: 0 0 40px 40px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 650px;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      font-weight: 600;
+      color: white;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.3);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin: 20px 0 0;   /* removed bottom margin since button is gone */
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* rating pill */
+    .rating-pill {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(4px);
+      padding: 6px 16px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,215,0,0.4);
+      margin-bottom: 20px;
+    }
+    .stars i {
+      color: gold;
+      margin-right: 2px;
+    }
+
+    /* features row (why choose us) */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      background: var(--bgSoft);
+      padding: 40px 20px;
+      border-radius: 60px;
+      margin: 60px 0;
+      border: 1px solid var(--border);
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1.1rem;
+    }
+    .feature-item i {
+      font-size: 2.2rem;
+      color: var(--accent);
+    }
+
+    /* product grid */
+    .section-title {
+      font-size: 2.8rem;
+      margin: 60px 0 30px;
+      text-align: center;
+      color: var(--text);
+      position: relative;
+    }
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      margin: 12px auto 0;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: var(--cardBg);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--cardShadow);
+      transition: 0.3s;
+      padding: 20px 15px 25px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.15);
+    }
+    .product-image {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #d4d4d4;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      background-image: url('IMG-20260318-WA0040.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .product-card:nth-child(2) .product-image { background-image: url('IMG-20260318-WA0038.jpg'); }
+    .product-card:nth-child(3) .product-image { background-image: url('IMG-20260318-WA0037.jpg'); }
+    .product-card:nth-child(4) .product-image { background-image: url('IMG-20260318-WA0041.jpg'); }
+    .price {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin: 10px 0 5px;
+    }
+    .quick-view {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--text);
+      padding: 8px 25px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-top: 15px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .quick-view:hover {
+      background: var(--accent);
+      color: black;
+    }
+
+    /* ===== 20-ITEM GALLERY GRID ===== */
+    .gallery-grid-20 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);  /* 5 cols x 4 rows = 20 */
+      gap: 16px;
+      margin: 50px 0;
+    }
+    .gallery-item-20 {
+      aspect-ratio: 3/4;
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      box-shadow: var(--cardShadow);
+      transition: all 0.25s ease;
+      border: 1px solid var(--border);
+    }
+    .gallery-item-20:hover {
+      transform: scale(0.97);
+      box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+    }
+
+    /* 20 unique fashion images (mix of unsplash luxury fashion) */
+    .g1 { background-image: url('IMG-20260318-WA0032.jpg'); }
+    .g2 { background-image: url('IMG-20260318-WA0028.jpg'); }
+    .g3 { background-image: url('IMG-20260318-WA0029.jpg'); }
+    .g4 { background-image: url('IMG-20260318-WA0031.jpg'); }
+    .g5 { background-image: url('IMG-20260318-WA0033.jpg'); }
+    .g6 { background-image: url('IMG-20260318-WA0034.jpg'); }
+    .g7 { background-image: url('IMG-20260318-WA0035.jpg'); }
+    .g8 { background-image: url('IMG-20260318-WA0044.jpg'); }
+    .g9 { background-image: url('IMG-20260318-WA0045.jpg'); }
+    .g10 { background-image: url('IMG-20260318-WA0043.jpg'); }
+    .g11 { background-image: url('IMG-20260318-WA0042.jpg'); }
+    .g12 { background-image: url('IMG-20260318-WA0041.jpg'); }
+    .g13 { background-image: url('IMG-20260318-WA0040.jpg'); }
+    .g14 { background-image: url('IMG-20260318-WA0039.jpg'); }
+    .g15 { background-image: url('IMG-20260318-WA0038.jpg'); }
+    .g16 { background-image: url('IMG-20260318-WA0037.jpg'); }
+    .g17 { background-image: url('IMG-20260318-WA0036.jpg'); }
+    
+    /* whatsapp channel section */
+    .whatsapp-engage {
+      background: var(--bgSoft);
+      border-radius: 50px;
+      padding: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 70px 0;
+      border: 1px solid var(--border);
+    }
+    .wa-text h3 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    .wa-btn {
+      background: #25D366;
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .wa-btn:hover {
+      background: #20b859;
+      transform: scale(1.02);
+    }
+
+    /* contact section */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      background: var(--cardBg);
+      border-radius: 40px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      margin: 50px 0;
+    }
+    .contact-info {
+      flex: 2;
+      min-width: 280px;
+    }
+    .contact-info p {
+      margin: 20px 0;
+      font-size: 1.1rem;
+    }
+    .contact-info i {
+      color: var(--accent);
+      width: 35px;
+    }
+    .hours {
+      flex: 1;
+      background: var(--bgSoft);
+      padding: 25px;
+      border-radius: 30px;
+    }
+    .hours li {
+      list-style: none;
+      margin: 12px 0;
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 8px;
+    }
+
+    /* footer */
+    footer {
+      background: var(--footerBg);
+      color: var(--footerText);
+      padding: 40px 0 20px;
+      margin-top: 60px;
+    }
+    .footer-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .footer-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin-right: 30px;
+      font-weight: 400;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .social i {
+      font-size: 1.6rem;
+      margin: 0 10px;
+      color: #aaa;
+      transition: 0.2s;
+    }
+    .social i:hover { color: var(--accent); }
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      font-size: 0.9rem;
+      border-top: 1px solid #222;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .gallery-grid-20 { grid-template-columns: repeat(3, 1fr); } /* 7 rows approx */
+    }
+    @media (max-width: 600px) {
+      .gallery-grid-20 { grid-template-columns: repeat(2, 1fr); }
+      nav { flex-direction: column; gap: 15px; }
+      .nav-links { justify-content: center; }
+      .hero h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- STICKY MULTI-FUNCTION NAVBAR -->
+  <nav>
+    <div class="logo">MUSA <span>KARACHI</span></div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#branding">MORE DESIGN</a>
+      <a href="#contact">CONTACT</a>
+      <!-- DAY/NIGHT TOGGLE -->
+      <div class="toggle-switch" id="themeToggle">
+        <div class="toggle-knob">
+          <i class="fas fa-moon" style="font-size: 12px;"></i>
+          <i class="fas fa-sun" style="font-size: 12px; display: none;"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- HERO SECTION (Shop Now button removed) -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="rating-pill">
+          <span class="stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+          </span>
+          <span>4.5 ★ (2.1k reviews)</span>
+        </div>
+        <h1>Elevate Your Style<br>with MUSA KARACHI BRAND</h1>
+        <p>Luxury pret • nationwide delivery • 14-day full cashback</p>
+        <!-- no button here -->
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS (grid) -->
+    <h2 class="section-title" id="branding">Signature edits</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image"></div>
+        <h3>Casual luxury shirt</h3>
+        <div class="stars" style="color: var(--ratingStar);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)</div>
+        <div class="price">PKR 3,500</div>
+        
+      </div>
+      <div class="product-card">
+        <div class="product-image"></div>
+        <h3>Formal blazer (slim)</h3>
+        <div class="stars" style="color: var(--ratingStar);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.7)</div>
+        <div class="price">PKR 4,000</div>
+        
+      </div>
+      <div class="product-card">
+        <div class="product-image"></div>
+        <h3>Seasonal linen set</h3>
+        <div class="stars" style="color: var(--ratingStar);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)</div>
+        <div class="price">PKR 5,500</div>
+        
+      </div>
+      <div class="product-card">
+        <div class="product-image"></div>
+        <h3>Evening pret</h3>
+        <div class="stars" style="color: var(--ratingStar);"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)</div>
+        <div class="price">PKR 2,600</div>
+        
+      </div>
+    </div>
+
+    <!-- WHY CHOOSE US (rating, delivery, return) -->
+    <div class="features-grid">
+      <div class="feature-item"><i class="fas fa-star"></i> <span><strong>4.5★ rating</strong> from 5k+ customers</span></div>
+      <div class="feature-item"><i class="fas fa-truck"></i> <span><strong>Delivery all across Pakistan</strong> (2-4 days)</span></div>
+      <div class="feature-item"><i class="fas fa-undo-alt"></i> <span><strong>14-day easy return</strong> full cashback</span></div>
+    </div>
+
+    <!-- ===== GALLERY WITH 20 PICTURES ===== -->
+    <h2 class="section-title" id="gallery">Latest collection (20 looks)</h2>
+    <div class="gallery-grid-20">
+      <div class="gallery-item-20 g1"></div>
+      <div class="gallery-item-20 g2"></div>
+      <div class="gallery-item-20 g3"></div>
+      <div class="gallery-item-20 g4"></div>
+      <div class="gallery-item-20 g5"></div>
+      <div class="gallery-item-20 g6"></div>
+      <div class="gallery-item-20 g7"></div>
+      <div class="gallery-item-20 g8"></div>
+      <div class="gallery-item-20 g9"></div>
+      <div class="gallery-item-20 g10"></div>
+      <div class="gallery-item-20 g11"></div>
+      <div class="gallery-item-20 g12"></div>
+      <div class="gallery-item-20 g13"></div>
+      <div class="gallery-item-20 g14"></div>
+      <div class="gallery-item-20 g15"></div>
+      <div class="gallery-item-20 g16"></div>
+      <div class="gallery-item-20 g17"></div>
+    </div>
+
+    <!-- CUSTOMER ENGAGEMENT / WHATSAPP CHANNEL -->
+    <div class="whatsapp-engage">
+      <div class="wa-text">
+        <h3>🇵🇰 Join our WhatsApp channel</h3>
+        <p style="font-size: 1.1rem;">Be first to see new designs & exclusive drops</p>
+      </div>
+      <a href="https://whatsapp.com/channel/0029Vb6GIxz1iUxdQPrlCh41" target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> View Latest Designs</a>
+    </div>
+
+    <!-- CONTACT SECTION (WhatsApp number displayed) -->
+    <section id="contact">
+      <h2 class="section-title">Connect with us</h2>
+      <div class="contact-row">
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> slahudinsam819@gmail.com</p>
+          <!-- WhatsApp number explicitly shown, as requested -->
+          <p><i class="fab fa-whatsapp"></i> <strong>+92 328 7252677</strong> (WhatsApp orders)</p>
+          <p><i class="fas fa-shopping-cart"></i> Orders via Email & WhatsApp</p>
+          <p><i class="fas fa-store"></i> Shop open daily</p>
+        </div>
+        <div class="hours">
+          <h4 style="color: var(--accent);">Business hours</h4>
+          <ul>
+            <li>Mon–Thu : 9AM – 8PM</li>
+            <li>Friday  : 9AM – 12PM</li>
+            <li>Sat–Sun : 9AM – 8PM</li>
+          </ul>
+          <p style="margin-top: 20px;"><i class="fas fa-clock" style="color: var(--accent);"></i> 7 days a week</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <a href="https://whatsapp.com/channel/0029Vb6GIxz1iUxdQPrlCh41" target="_blank">WhatsApp</a>
+      </div>
+      <div class="social">
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-facebook"></i>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 MUSA KARACHI BRAND – luxury pret wear. Shop open daily.</p>
+    </div>
+  </footer>
+
+  <!-- DARK MODE TOGGLE SCRIPT -->
+  <script>
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const body = document.body;
+      const knob = document.querySelector('.toggle-knob');
+      const moonIcon = '<i class="fas fa-moon" style="font-size: 12px;"></i>';
+      const sunIcon = '<i class="fas fa-sun" style="font-size: 12px; color: black;"></i>';
+
+      // check localStorage
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        knob.innerHTML = sunIcon;
+      } else {
+        knob.innerHTML = moonIcon;
+      }
+
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+          knob.innerHTML = sunIcon;
+          localStorage.setItem('theme', 'dark');
+        } else {
+          knob.innerHTML = moonIcon;
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    })();
+  </script>
+
+  <!-- small style for stars & hover -->
+  <style>
+    .product-card .quick-view { border: 1px solid var(--accent); }
+    .stars i { color: var(--ratingStar); margin-right: 3px; }
+    a, button { cursor: pointer; }
+  </style>
+</body>
+</html>
